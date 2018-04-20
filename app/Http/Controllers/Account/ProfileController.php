@@ -11,4 +11,9 @@ class ProfileController extends Controller
     {
         return view('account.profile.index');
     }
+
+    public function store()
+    {
+        dd('dfgdf');
+    }
 }

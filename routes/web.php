@@ -15,4 +15,5 @@ Route::group(['prefix' => 'account', 'middleware' => ['auth'], 'namespace' => 'A
      * Profile
      */
     Route::get('profile', 'ProfileController@index')->name('profile.index');
+    Route::post('profile', 'ProfileController@store')->name('profile.store');
 });
