@@ -12,8 +12,10 @@ class ProfileController extends Controller
         return view('account.profile.index');
     }
 
-    public function store()
+    public function store(Request $request)
     {
-        dd('dfgdf');
+        $request->user()->update($request->only('name', 'email'));
+
+        return back();
     }
 }
