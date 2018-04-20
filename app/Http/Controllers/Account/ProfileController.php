@@ -4,6 +4,7 @@ namespace App\Http\Controllers\Account;
 
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
+use App\Http\Requests\Account\ProfileStoreRequest;
 
 class ProfileController extends Controller
 {
@@ -12,7 +13,7 @@ class ProfileController extends Controller
         return view('account.profile.index');
     }
 
-    public function store(Request $request)
+    public function store(ProfileStoreRequest $request)
     {
         $request->user()->update($request->only('name', 'email'));
 
