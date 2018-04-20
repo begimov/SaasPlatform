@@ -1,5 +1,6 @@
-@extends('layouts.app')
+@extends('account.layouts.default')
 
-@section('content')
- Account
+@section('account.content')
+    Account INDEX
 @endsection
+
