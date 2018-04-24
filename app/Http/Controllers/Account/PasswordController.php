@@ -12,8 +12,12 @@ class PasswordController extends Controller
         return view('account.password.index');
     }
 
-    public function store()
+    public function store(Request $request)
     {
-        dd('STORE');
+        $request->user()->update([
+            'password' => bcrypt($request->password),
+        ]);
+
+        return redirect()->route('account.index');
     }
 }
