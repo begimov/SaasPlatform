@@ -11,4 +11,9 @@ class PasswordController extends Controller
     {
         return view('account.password.index');
     }
+
+    public function store()
+    {
+        dd('STORE');
+    }
 }
