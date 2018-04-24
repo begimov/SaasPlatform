@@ -4,18 +4,10 @@ namespace App\Rules;
 
 use Illuminate\Contracts\Validation\Rule;
 
+use Illuminate\Support\Facades\Hash;
+
 class CurrentPassword implements Rule
 {
-    /**
-     * Create a new rule instance.
-     *
-     * @return void
-     */
-    public function __construct()
-    {
-        //
-    }
-
     /**
      * Determine if the validation rule passes.
      *
@@ -25,7 +17,7 @@ class CurrentPassword implements Rule
      */
     public function passes($attribute, $value)
     {
-        //
+        return Hash::check($value, auth()->user()->password);
     }
 
     /**
