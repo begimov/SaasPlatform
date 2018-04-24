@@ -12,6 +12,8 @@ trait HasConfirmationTokens
             'token' => $token = str_random(200),
             'expires_at' => $this->getConfirmationTokenExpiry()
         ]);
+
+        return $token;
     }
 
     public function confirmationToken()
