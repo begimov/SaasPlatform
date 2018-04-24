@@ -15,7 +15,11 @@ class CreateConfirmationTokensTable extends Migration
     {
         Schema::create('confirmation_tokens', function (Blueprint $table) {
             $table->increments('id');
-            $table->timestamps();
+            $table->integer('user_id')->unsigned()->index();
+            $table->string('token');
+            $table->timestamp('expires_at');
+
+            $table->foreign('user_id')->references('id')->on('users')->onDelete('cascade');
         });
     }
 
