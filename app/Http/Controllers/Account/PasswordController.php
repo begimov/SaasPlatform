@@ -6,6 +6,9 @@ use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use App\Http\Requests\Account\PasswordStoreRequest;
 
+use Illuminate\Support\Facades\Mail;
+use App\Mail\Account\PasswordUpdated;
+
 class PasswordController extends Controller
 {
     public function index()
@@ -18,6 +21,8 @@ class PasswordController extends Controller
         $request->user()->update([
             'password' => bcrypt($request->password),
         ]);
+
+        Mail::to($request->user())->send(new PasswordUpdated);
 
         return redirect()->route('account.index');
     }
