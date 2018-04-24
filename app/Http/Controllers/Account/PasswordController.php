@@ -4,6 +4,7 @@ namespace App\Http\Controllers\Account;
 
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
+use App\Http\Requests\Account\PasswordStoreRequest;
 
 class PasswordController extends Controller
 {
@@ -12,7 +13,7 @@ class PasswordController extends Controller
         return view('account.password.index');
     }
 
-    public function store(Request $request)
+    public function store(PasswordStoreRequest $request)
     {
         $request->user()->update([
             'password' => bcrypt($request->password),

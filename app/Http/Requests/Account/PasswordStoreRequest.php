@@ -13,7 +13,7 @@ class PasswordStoreRequest extends FormRequest
      */
     public function authorize()
     {
-        return false;
+        return true;
     }
 
     /**
@@ -24,7 +24,8 @@ class PasswordStoreRequest extends FormRequest
     public function rules()
     {
         return [
-            //
+            'password_current' => 'required',
+            'password' => 'required|string|min:6|confirmed',
         ];
     }
 }
