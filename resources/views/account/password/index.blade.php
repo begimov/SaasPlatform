@@ -7,14 +7,15 @@
                 {{ csrf_field() }}
 
                 <div class="form-group">
-                    <label for="password_current" class="control-label">Username</label>
-                    <input type="password" name="password_current" id="password_current" class="form-control{{ $errors->has('password_current') ? ' is-invalid' : '' }}">
+                    <label for="password_current" class="control-label">Current password</label>
+                    <input type="password" name="password_current" id="password_current" 
+                        class="form-control{{ $errors->has('password_current') ? ' is-invalid' : '' }}">
                     <div class="invalid-feedback">
                         {{ $errors->first('password_current') }}
                     </div>
                 </div>
 
-                <button type="submit" class="btn btn-primary">Submit</button>
+                <button type="submit" class="btn btn-primary">Update</button>
             </form>
         </div>
     </div>

@@ -21,4 +21,5 @@ Route::group(['prefix' => 'account', 'middleware' => ['auth'], 'namespace' => 'A
      * Password
      */
     Route::get('password', 'PasswordController@index')->name('password.index');
+    Route::post('password', 'PasswordController@store')->name('password.store');
 });
