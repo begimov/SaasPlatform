@@ -7,5 +7,8 @@ use App\Http\Controllers\Controller;
 
 class PasswordController extends Controller
 {
-    //
+    public function index()
+    {
+        return view('account.password.index');
+    }
 }
