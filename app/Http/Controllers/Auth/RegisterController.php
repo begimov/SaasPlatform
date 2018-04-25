@@ -9,6 +9,7 @@ use Illuminate\Support\Facades\Validator;
 use Illuminate\Foundation\Auth\RegistersUsers;
 
 use Illuminate\Http\Request;
+use App\Events\Auth\UserSignedUp;
 
 class RegisterController extends Controller
 {
@@ -83,7 +84,7 @@ class RegisterController extends Controller
     {
         $this->guard()->logout();
 
-        //
+        event(new UserSignedUp($user));
 
         return redirect($this->redirectPath())->withSuccess('Check your email for account activation instructions');
     }
