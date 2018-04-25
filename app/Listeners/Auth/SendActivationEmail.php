@@ -5,7 +5,10 @@ namespace App\Listeners\Auth;
 use Illuminate\Queue\InteractsWithQueue;
 use Illuminate\Contracts\Queue\ShouldQueue;
 
-class SendActivationEmail
+use App\Mail\Auth\ActivationEmail;
+use Illuminate\Support\Facades\Mail;
+
+class SendActivationEmail implements ShouldQueue
 {
     /**
      * Handle the event.
@@ -15,6 +18,6 @@ class SendActivationEmail
      */
     public function handle($event)
     {
-        //
+        Mail::to($event->user)->send(new ActivationEmail($event->user->generateConfirmationToken()));
     }
 }
